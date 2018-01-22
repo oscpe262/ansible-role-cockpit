@@ -1,0 +1,27 @@
+## roles/cockpit/handlers/main.yml
+# vim:ft=ansible:
+---
+- name: restart cockpit service
+  service:
+    name: cockpit
+    state: restarted
+    enabled: yes
+  when: cockpit_master
+  listen: "restart cockpit"
+
+- name: restart cockpit socket
+  service:
+    name: cockpit.socket
+    state: restarted
+    enabled: true
+  when: cockpit_master
+  listen: "restart cockpit"
+
+- name: open firewall
+  firewalld:
+    service: cockpit-ws
+    port: 9090/tcp
+    status: enabled
+    permanent: true
+  when: cockpit_master
+...

@@ -1,0 +1,33 @@
+## roles/cockpit/tasks/main.yml
+# vim:ft=ansible:
+---
+- include_tasks: repo-debian.yml
+  when: ansible_distribution == 'Debian'
+
+- include_tasks: repo-ubuntu.yml
+  when: ansible_distribution == 'Ubuntu'
+
+- include_vars: '{{ item }}'
+  with_first_found:
+    - '{{ ansible_distribution }}.yml'
+    - '{{ ansible_os_family }}.yml'
+    - 'main.yml'
+
+- name: Install Cockpit Master Packages
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  when: 'cockpit_master'
+  with_dict: '{{ master_packages }}'
+  notify:
+    - restart cockpit
+    - open firewall
+
+- name: Install Cockpit Node Packages
+  package:
+    name: '{{ item.key }}'
+    state: '{{ item.value }}'
+  with_dict: '{{ node_packages }}'
+  notify:
+    - restart cockpit
+...
