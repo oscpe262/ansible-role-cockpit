@@ -30,4 +30,11 @@
   with_dict: '{{ node_packages }}'
   notify:
     - restart cockpit
+
+- name: Create Cockpit User
+  user:
+    name: cockpit
+    shell: /bin/bash
+    groups: wheel
+    uid: 65000
 ...
