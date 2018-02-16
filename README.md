@@ -1,6 +1,6 @@
 # Ansible role cockpit
 
-An Ansible role for setting up Cockpit server management system..
+An Ansible role for setting up Cockpit server management system.
 
 ## Requirements
 
