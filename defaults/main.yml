@@ -27,4 +27,5 @@ node_packages:
   cockpit-storaged: present
   cockpit-networkmanager: present 
   cockpit-system: present
+  cockpit: present
 ...
