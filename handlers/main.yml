@@ -19,9 +19,9 @@
 
 - name: open firewall
   firewalld:
-    service: cockpit-ws
     port: 9090/tcp
-    status: enabled
-    permanent: true
+    state: enabled
+    permanent: True
+    immediate: True
   when: cockpit_master
 ...
