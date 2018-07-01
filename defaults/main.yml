@@ -1,5 +1,5 @@
 ## roles/cockpit/default/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 cockpit_master: false
 

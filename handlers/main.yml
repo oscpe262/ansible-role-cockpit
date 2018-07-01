@@ -1,5 +1,5 @@
 ## roles/cockpit/handlers/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - name: restart cockpit service
   service:

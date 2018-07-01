@@ -1,4 +1,4 @@
 ## roles/cockpit/vars/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 ...

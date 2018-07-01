@@ -1,5 +1,5 @@
 ## roles/cockpit/tasks/main.yml
-# vim:ft=ansible:
+# vim:ft=yaml.ansible:
 ---
 - include_tasks: repo-debian.yml
   when: ansible_distribution == 'Debian'
